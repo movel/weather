@@ -1,18 +1,67 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import "bootstrap/dist/css/bootstrap.css";
+import { Navbar, NavItem, Nav, Grid, Row, Col, Jumbotron } from "react-bootstrap";
+import "bootswatch/spacelab/bootstrap.css";
 import './App.css';
+import WeatherDisplay from './WeatherDisplay';
+import LocalWeather from './LocalWeather';
+
+const PLACES = [
+  { name: "Palo Alto", zip: "94303" },
+  { name: "San Jose", zip: "94088" },
+  { name: "Santa Cruz", zip: "95062" },
+  { name: "Honolulu", zip: "96803" },
+  { name: "Beverly Hills", zip: "90209" }
+];
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      activePlace: 4,
+    };
+  }
+  
   render() {
+    const activePlace = this.state.activePlace;
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <Navbar>
+          <Navbar.Header>
+            <Navbar.Brand>
+              React Simple Weather App
+            </Navbar.Brand>
+          </Navbar.Header>
+        </Navbar>
+        
+        <Grid>
+          <Row>
+            <Jumbotron>
+              <LocalWeather />
+            </Jumbotron>
+          </Row>
+          <Row>
+            <Col md={4} sm={4}>
+              <h3>Select a city</h3>
+              <Nav
+                bsStyle="pills"
+                stacked
+                activeKey={activePlace}
+                onSelect={index => {
+                  this.setState({ activePlace: index });
+                }}
+              >
+                {PLACES.map((place, index) => (
+                  <NavItem key={index} eventKey={index}>{place.name}</NavItem>
+                ))}
+              </Nav>
+            </Col>
+            <Col md={8} sm={8}>
+              <WeatherDisplay key={activePlace} name={PLACES[activePlace].name} />
+            </Col>
+          </Row>
+          
+        </Grid>
       </div>
     );
   }
