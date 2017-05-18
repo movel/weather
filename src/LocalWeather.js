@@ -21,7 +21,7 @@ class LocalWeather extends Component {
     
     return (
       <div>
-        <WeatherDisplay name={localIP.city} />
+        <WeatherDisplay name={localIP.city} country={localIP.country} />
       </div>
     );
   }
