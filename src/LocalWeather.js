@@ -10,18 +10,13 @@ class LocalWeather extends Component {
   }
   
   componentDidMount() {
-    fetch("http://ipinfo.io/json", {method: "GET"})
-      .then(res => res.json())
-      .then(json => {this.setState({ localIP: json })});
+    
   }
   
   render() {
-    const localIP = this.state.localIP;
-    if (!localIP) return <div>Loading data...</div>;
-    
     return (
       <div>
-        <WeatherDisplay name={localIP.city} country={localIP.country} />
+        <WeatherDisplay name={this.props.city_name} country={this.props.country_code} />
       </div>
     );
   }

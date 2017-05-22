@@ -41,6 +41,7 @@ class WeatherDisplay extends Component {
             {weather.main} in {weatherData.name}, {this.props.country}
             <img src={iconUrl} alt={weatherData.description} style={{width: '10%', heigth: 'auto'}} />
           </h1>
+          
           <p>Current: {weatherData.main.temp} °C</p>
           <p>Pressure: {(weatherData.main.pressure*0.750061683).toPrecision(5)} mmHg</p>
           <p>Humidity: {weatherData.main.humidity} %</p>
