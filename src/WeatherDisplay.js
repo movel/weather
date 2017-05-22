@@ -46,7 +46,7 @@ class WeatherDisplay extends Component {
         <div style={style}>
           <h1>
             {weather.main} in {weatherData.name}, {this.props.country}
-            <img src={iconUrl} alt={weatherData.description} style={{width: '10%', heigth: 'auto'}} />
+            <img src={iconUrl} alt={weatherData.description} style={{width: '15%', heigth: 'auto'}} />
           </h1>
           
           <p>Current: {Math.round(weatherData.main.temp)} °C</p>

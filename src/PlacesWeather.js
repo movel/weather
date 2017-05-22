@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import "bootstrap/dist/css/bootstrap.css";
 import { Navbar, NavItem, Nav, Grid, Row, Col } from "react-bootstrap";
-import "bootswatch/spacelab/bootstrap.css";
+//import "bootswatch/spacelab/bootstrap.css";
 import './App.css';
 import WeatherDisplay from './WeatherDisplay';
 // import LocalWeather from './LocalWeather';

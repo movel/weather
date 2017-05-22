@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col, Navbar } from "react-bootstrap";
 import "bootswatch/cerulean/bootstrap.css";
+import { Grid, Row, Col, Navbar } from "react-bootstrap";
 import './App.css';
 import LocalWeather from './LocalWeather';
 import HighChartsPlot from './HighChartsPlot';
@@ -45,25 +45,16 @@ class App extends Component {
         </Navbar>
         <Grid>
           <Row>
-            <Col>
+            <Col md={4} sm={4}>
               <LocalWeather city_name={localIP.city} country_code={localIP.country} />
             </Col>
+            <Col md={8} sm={8} style={styleChart}>
+              <HighChartsPlot city_name={localIP.city} country_code={localIP.country} />
+            </Col>
           </Row>
-          
-          <Row style={styleChart}>
-            <HighChartsPlot city_name={localIP.city} country_code={localIP.country} />
-          </Row>
-          
           <Row>
             <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
           </Row>
-          
         </Grid>
       </div>
     );

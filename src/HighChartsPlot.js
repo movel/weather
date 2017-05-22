@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import ReactHighcharts from 'react-highcharts/ReactHighcharts';
-//var Highcharts = require('highcharts');
 import Highcharts from 'highcharts/highcharts';
-import 'bootswatch/spacelab/bootstrap.css';
+//import 'bootswatch/spacelab/bootstrap.css';
 import './App.css';
-// import LocalWeather from './LocalWeather';
-// import PlacesWeather from './PlacesWeather';
 
 class HighChartsPlot extends Component {
   constructor() {
@@ -43,38 +40,16 @@ class HighChartsPlot extends Component {
     if (!weatherData) return <div>Loading data...</div>;
     
     const list = weatherData.list;
-    console.log(list);
     
     let data_temp = [];
     let data_press = [];
-    let data_rain = [];
-    let xAxis = [];
-    
-    let date = '';
-    let day = '';
-    let hours = '';
-    let minutes = '';
     
     for (let i in list) {
       data_temp.push(list[i].main.temp);
       data_press.push(list[i].main.pressure);
-      data_rain.push(list[i].rain["3h"]);
-      date = new Date(list[i].dt_txt);
-      
-      day = date.getDate();
-      day = ((day < 10) ? "0" : "") + day;
-      
-      hours = date.getHours();
-      hours = ((hours < 10) ? "0" : "") + hours;
-      
-      minutes = date.getMinutes();
-      minutes = ((minutes < 10) ? "0" : "") + minutes;
-      
-      xAxis.push(`${day}-${hours}:${minutes}`);
     }
     
-    date = new Date(list[0].dt_txt);
-    console.log(date);
+    let date = new Date(list[0].dt_txt);
     
     const config = {
       chart: {
@@ -149,7 +124,6 @@ class HighChartsPlot extends Component {
         {
           name: 'Temperature',
           type: 'spline',
-          //yAxis: 1,
           data: data_temp,
           tooltip: {
               valueSuffix: ' °C'
