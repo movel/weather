@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-// import "bootstrap/dist/css/bootstrap.css";
 import { Grid, Row, Col, Navbar } from "react-bootstrap";
-import "bootswatch/spacelab/bootstrap.css";
+import "bootswatch/cerulean/bootstrap.css";
 import './App.css';
 import LocalWeather from './LocalWeather';
 import HighChartsPlot from './HighChartsPlot';
-import Background from './img/SUN.jpeg';
-// import PlacesWeather from './PlacesWeather';
+import Background from './img/SUN-min-min.jpeg';
 
 class App extends Component {
   constructor() {
