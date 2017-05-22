@@ -9,10 +9,6 @@ class LocalWeather extends Component {
     };
   }
   
-  componentDidMount() {
-    
-  }
-  
   render() {
     return (
       <div>

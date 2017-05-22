@@ -5,6 +5,7 @@ import "bootswatch/spacelab/bootstrap.css";
 import './App.css';
 import LocalWeather from './LocalWeather';
 import HighChartsPlot from './HighChartsPlot';
+import Background from './img/SUN.jpeg';
 // import PlacesWeather from './PlacesWeather';
 
 class App extends Component {
@@ -26,12 +27,21 @@ class App extends Component {
     const localIP = this.state.localIP;
     if (!localIP) return <div>Loading data...</div>;
     
+    let style = {
+      backgroundImage: `url(${Background})`,
+      backgroundSize: 'cover'
+    }
+    
+    let styleChart = {
+      opacity: '0.8'
+    }
+    
     return (
-      <div>
+      <div style={style}>
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#">React-Bootstrap</a>
+              <a href="#">Weather and Forecast</a>
             </Navbar.Brand>
           </Navbar.Header>
         </Navbar>
@@ -42,8 +52,18 @@ class App extends Component {
             </Col>
           </Row>
           
-          <Row>
+          <Row style={styleChart}>
             <HighChartsPlot city_name={localIP.city} country_code={localIP.country} />
+          </Row>
+          
+          <Row>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
           </Row>
           
         </Grid>
