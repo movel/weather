@@ -9,20 +9,20 @@ class HighChartsPlot extends Component {
     super();
     this.state = {
       weatherData: null,
-      city_name: '',
-      country_code: ''
+      city: '',
+      country: ''
     };
   }
   
   componentDidMount() {
-    const city_name = this.props.city_name;
-    this.setState({ city_name: city_name });
-    const country_code = this.props.country_code;
-    this.setState({ country_code: country_code });
+    let city = this.props.city;
+    this.setState({ city: city });
+    let country = this.props.country;
+    this.setState({ country: country });
     const URL = "http://api.openweathermap.org/data/2.5/forecast?q=" 
-                + city_name 
+                + city 
                 + "," 
-                + country_code 
+                + country 
                 + "&appid=ea60d6923551d551e93f9a69210c0440"
                 + "&units=metric"
                 + "&cnt=12";
@@ -56,7 +56,7 @@ class HighChartsPlot extends Component {
         zoomType: 'xy'
       },
       title: {
-          text: `Weather and Forecast Data for ${this.state.city_name}, ${this.state.country_code}`
+          text: `Weather and Forecast Data for ${this.state.city}, ${this.state.country}`
       },
       subtitle: {
           text: 'Source: <a>http://openweathermap.org/</a>'

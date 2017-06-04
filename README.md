@@ -5,7 +5,8 @@ You can find the most recent version of this guide [here](https://github.com/fac
 
 Commit & deploy :recycle:
 
-npm run build
-git add .
-git commit -m "Start with create-react-app"
-git push heroku master
+1. npm run build
+2. git add .
+3. git commit -m "Start with create-react-app"
+4. git push heroku master
+5. git push master +HEAD
